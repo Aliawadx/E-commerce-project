@@ -1,0 +1,19 @@
+import {faker} from "@faker-js/faker"   
+import { DESTRUCTION } from "node:dns";
+import { productIntreface } from "../intarfaces";
+
+
+ export const gnerateFakeProducts= ():productIntreface[]=>{
+    return Array.from({length:25}, (_,idx)=>{
+        return{
+
+        id:idx+1,
+        title:faker.commerce.productName() ,
+        price:+faker.commerce.price({min:100,max:200}),
+        description : faker.commerce.productDescription(),
+        imageUrl :faker.image.urlPicsumPhotos()
+        };
+
+        
+    });
+};
