@@ -36,6 +36,8 @@ getProducts(req:Request , res:Response) {
 
 
 getProductsById(req:Request <{id: string}>,res:Response){
+    throw new Error("");
+    
     
     const productID = +req.params.id
     if (isNaN(productID)){

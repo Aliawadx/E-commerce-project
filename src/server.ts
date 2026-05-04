@@ -6,6 +6,13 @@ import ProductControllers from "./controllers/ProductControllers"
 import  ProductServise from "./servises/Productservise"
 import ProductsRouter from "./routes/products"
 import ProductsViewControllers from "./controllers/productsViewControllerrs"
+import ErorMiddlware from "./middlewares/Error"
+import dotenv from "dotenv"
+import notfoundMiddleware from "./middlewares/NotFound"
+
+
+
+dotenv.config()
 const app  = express()
 app.use(express.json())
 app.set ( "views", path.join(__dirname, "views")  )
@@ -47,17 +54,16 @@ app.use("/api/products",ProductsRouter)
 
 app.get("/" , (req,res)=>{
     res.render("index")
+    
 })
 
 
+// middalwares
 
 
-app.use( (req,res)=>{
-res.render("notFound")
-})
+app.use(notfoundMiddleware.handle)
 
-
-
+app.use(ErorMiddlware.handle);
 
 
 

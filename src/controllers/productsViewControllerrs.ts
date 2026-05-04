@@ -11,6 +11,7 @@ constructor (private ProductServises:ProductServise){
 }
 
 renderProducts(req:Request , res:Response){
+    
     res.render("products",{
         pagetitle: "Product list",
         description: "good products",
@@ -27,7 +28,6 @@ renderProductPage(req:Request , res:Response){
 
 
 }
-
 
 
 }
